@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin "daisyui";
 
 :root {
   --background: #ffffff;
@@ -12,6 +13,12 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {

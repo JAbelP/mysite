@@ -1,0 +1,22 @@
+.paragraph {
+  display: block;  /* Ensure it behaves as a normal text block */
+  text-align: right; /* Aligns text to the right */
+  font-size: 60px;
+  line-height: 1;
+  max-width: 1280px;
+  color: white;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.word {
+  display: inline-block; /* Ensures words stay inline while respecting alignment */
+  position: relative;
+  margin-right: 12px;
+  margin-top: 12px;
+}
+
+.shadow {
+  position: absolute;
+  opacity: 20%;
+}
