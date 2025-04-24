@@ -16,7 +16,7 @@ function heroSection({ scrollToContact }) {
           <div className="max-w capitalize">
             <h1 className="text-5xl font-bold">Welcome to Abel&#39;s Website</h1>
             <h2 className="mb-5 text-2xl font-bold">
-              Don't Let Code Stop You
+              Don&apos;t Let Code Stop You
             </h2>
             <div className="mb-5 ">
               <TypingEffect />
