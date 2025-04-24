@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 function Services() {
   return (      
@@ -6,10 +7,13 @@ function Services() {
         
       <div className="card bg-base-100 w-96 shadow-sm">
         <figure>
-          <img
+          <Image
             className="hover:scale-125 transition-all duration-500 cursor-pointer"
             src="/FastSites.png" // Updated to public folder
-            alt="Blazing Fast Websites" />
+            alt="Blazing Fast Websites" 
+            width={500}
+            height={500}
+          />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">Blazing Fast Websites</h2>
@@ -23,10 +27,13 @@ function Services() {
               
       <div className="card bg-base-100 w-96 shadow-sm">
         <figure>
-          <img
+          <Image
             className="hover:scale-125 transition-all duration-500 cursor-pointer"
             src="/SocialMedia.png"
-            alt="Social Media Management" />
+            alt="Social Media Management" 
+            width={500}
+            height={500}
+          />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">Social Media Management</h2>
@@ -40,10 +47,13 @@ function Services() {
 
       <div className="card bg-base-100 w-96 shadow-sm">
         <figure>
-          <img
+          <Image
             className="hover:scale-125 transition-all duration-500 cursor-pointer"
             src="/Affordable.png"
-            alt="Affordable Website and App Hosting" />
+            alt="Affordable Website and App Hosting" 
+            width={500}
+            height={500}
+          />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title ">Affordable Website and App Hosting</h2>

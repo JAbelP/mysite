@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from 'next/image';
 
 /**
  * AnimatedPhone is a React functional component that renders a phone mockup
@@ -39,9 +40,11 @@ export default function AnimatedPhone(props) {
       >
         <div className="mockup-phone-camera"></div>
         <div className="mockup-phone-display w-80 h-[685px] relative">
-          <img
-            alt="wallpaper"
-            src="https://img.daisyui.com/images/stock/453966.webp"
+          <Image
+            src="/path/to/image.jpg"
+            alt="Description"
+            width={500}
+            height={500}
             className="absolute inset-0 w-full h-full object-cover"
           />
           {props.children && (

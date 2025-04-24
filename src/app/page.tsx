@@ -82,7 +82,7 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Let's Work Together
+                Let&#39;s Work Together
               </motion.h2>
               <motion.p
                 className="text-xl max-w-2xl mx-auto"
@@ -91,8 +91,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                Ready to take your digital presence to the next level? Get in touch today and let's create something
-                amazing together!
+                Ready to take your digital presence to the next level? Get in touch today and let&#39;s create something amazing together!
               </motion.p>
             </div>
   
@@ -210,7 +209,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <h3 className="text-2xl font-bold mb-2 text-base-content">Message Sent!</h3>
-                      <p className="text-lg text-base-content">We'll be in touch with you shortly.</p>
+                      <p className="text-lg text-base-content">We&#39;ll be in touch with you shortly.</p>
                       <button className="btn btn-primary mt-6" onClick={() => setIsSubmitted(false)}>
                         Send Another Message
                       </button>

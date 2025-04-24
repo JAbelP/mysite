@@ -14,7 +14,7 @@ function heroSection({ scrollToContact }) {
         <div className="hero-overlay"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w capitalize">
-            <h1 className="mb-5 text-5xl font-bold">Your Solution to the Web</h1>
+            <h1 className="text-5xl font-bold">Welcome to Abel&#39;s Website</h1>
             <h2 className="mb-5 text-2xl font-bold">
               Don't Let Code Stop You
             </h2>

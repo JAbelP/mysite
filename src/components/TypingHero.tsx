@@ -61,7 +61,7 @@ export default function TypingEffect() {
     }
 
     return () => clearTimeout(timeout);
-  }, [text, isDeleting, index]);
+  }, [speed]);
 
   return (
     <motion.div className="text-2xl font-mono text-white">
