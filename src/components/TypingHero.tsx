@@ -37,7 +37,6 @@ export default function TypingEffect() {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const speed = isDeleting ? 50 : 110; // Typing and deleting speed
 
   useEffect(() => {
     const handleTyping = () => {
