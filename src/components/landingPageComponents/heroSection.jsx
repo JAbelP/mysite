@@ -1,7 +1,7 @@
 import React from 'react';
 import TypingEffect from '../TypingHero';
 
-function heroSection() {
+function heroSection({ scrollToContact }) {
   return (
     <div>
       <div
@@ -19,17 +19,22 @@ function heroSection() {
               Don't Let Code Stop You
             </h2>
             <div className="mb-5 ">
-            <TypingEffect />
+              <TypingEffect />
             </div>
             <p className="mb-5">Get your next project off the ground today</p>
             <div>
-            <button className="btn btn-primary text-xl rounded-lg p-9 md:mx-3 md:my-0 my-4">
-              Get In Touch Today
-            </button>
-            <button className="btn btn-accent text-xl rounded-lg p-9 md:mx-3 md:my-0 my-4">
-              Get In Touch Today
-            </button>
-
+              <button
+                className="btn btn-primary text-xl rounded-lg p-9 md:mx-3 md:my-0 my-4"
+                onClick={scrollToContact}
+              >
+                Get In Touch Today
+              </button>
+              <button
+                className="btn btn-accent text-xl rounded-lg p-9 md:mx-3 md:my-0 my-4"
+                onClick={() => document.getElementById('testimonial-section').scrollIntoView({ behavior: 'smooth' })}
+              >
+                See Our Reviews
+              </button>
             </div>
           </div>
         </div>

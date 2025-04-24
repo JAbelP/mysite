@@ -1,10 +1,12 @@
 'use client';
 import HeroSection from "@/components/landingPageComponents/heroSection";
 import Services from "@/components/landingPageComponents/servicesSection/services";
+import Testimonials from "@/components/landingPageComponents/testimonials";
 import Bullet from "@/components/appear/Bullet";
 import { motion } from "framer-motion";
 import Paragraph from "@/components/appear/Paragraph";
 import Phone from "@/components/appear/Phone";
+import { useRef, useState } from "react"
 
 export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null);
@@ -31,25 +33,39 @@ export default function Home() {
       })
     }
   
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault()
-      setIsSubmitting(true)
-  
-      // Simulate form submission
-      setTimeout(() => {
-        setIsSubmitting(false)
-        setIsSubmitted(true)
-        setFormState({
-          name: "",
-          email: "",
-          message: "",
-          service: "website",
-        })
-      }, 1500)
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formState),
+        });
+
+        if (response.ok) {
+          setIsSubmitted(true);
+          setFormState({
+            name: "",
+            email: "",
+            message: "",
+            service: "website",
+          });
+        } else {
+          console.error('Failed to send message');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   
     return (
-      <section ref={contactRef} className="py-16 bg-gradient-to-b from-neutral to-neutral-focus text-neutral-content">
+      <section id="contact-section" ref={contactRef} className="py-16 bg-gradient-to-b from-neutral to-neutral-focus text-neutral-content">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto"
@@ -122,7 +138,7 @@ export default function Home() {
                     <div className="flex items-center">
                     </div>
                   </div>
-                  <div className="mt-8">
+                  {/* <div className="mt-8">
                     <h4 className="font-semibold mb-3">Follow Us</h4>
                     <div className="flex space-x-4">
                       <a href="#" className="btn btn-circle btn-sm btn-outline">
@@ -174,7 +190,7 @@ export default function Home() {
                         </svg>
                       </a>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="md:w-2/3 p-8">
                   {isSubmitted ? (
@@ -284,28 +300,17 @@ export default function Home() {
 
   return (
     <main className="">
-      <HeroSection />
+      <HeroSection scrollToContact={scrollToContact} />
       <Services />
-      
-      <div className="phone-w-details flex justify-center">
+      <div className="phone-w-details flex justify-center my-5">
         <div className="PHONE MODE block md:hidden overflow-x-hidden">
-          <Phone rotation={0} />
-          <div className="mockup-phone border-gray-500 border-primary my-5">
-            <div className="mockup-phone-camera"></div>
-            <div className="mockup-phone-display w-80 h-[685px] relative">
-              <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">
-                <ul className="text-center text-4xl text-wrap px-5">
+          <Phone rotation={0} >
+          <ul className="text-center text-4xl text-wrap px-5">
                   <li className="mb-8">Mobile Ready Websites</li>
-                  <li className="mb-8">Blazing Fast Sites :|</li>
+                  <li className="mb-8">Blazing Fast Sites</li>
                   <li className="mb-8">Affordable Prices</li>
                 </ul>
-              </div>
-              <img
-                alt="wallpaper"
-                src="https://img.daisyui.com/images/stock/453966.webp"
-              />
-            </div>
-          </div>
+          </Phone>
         </div>
 
         <div className="FULL MODE hidden md:block">
@@ -337,6 +342,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div id="testimonial-section">
+        <Testimonials />
+      </div>
+      <ContactSection />
     </main>
   );
 }

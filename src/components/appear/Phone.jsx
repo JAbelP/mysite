@@ -7,6 +7,7 @@ import { useRef } from "react";
  *
  * @param {Object} props - The properties passed to the component.
  * @param {number} [props.rotation=0] - The rotation angle (in degrees) to apply to the phone mockup.
+ * @param {React.ReactNode} [props.children] - Custom content to display inside the phone mockup.
  * 
  * @returns {JSX.Element} A motion-enabled div containing a phone mockup with scroll-based animations.
  *
@@ -26,24 +27,30 @@ export default function AnimatedPhone(props) {
   const x = useTransform(scrollYProgress, [0, 1], [100, 0]); // Moves from right to center
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]); // Fades in
 
-return (
+  return (
     <motion.div
-        ref={ref}
-        className="col-start-2 row-start-1 "
-        style={{ x, opacity }}
+      ref={ref}
+      className="col-start-2 row-start-1"
+      style={{ x, opacity }}
     >
-        <div
-            className={`mockup-phone border-l-gray-500`}
-            style={{ transform: `rotate(${props.rotation || 0}deg)` }}
-        >
-            <div className="mockup-phone-camera"></div>
-            <div className="mockup-phone-display w-80 h-[685px]">
-                <img
-                    alt="wallpaper"
-                    src="https://img.daisyui.com/images/stock/453966.webp"
-                />
+      <div
+        className={`mockup-phone border-l-gray-500`}
+        style={{ transform: `rotate(${props.rotation || 0}deg)` }}
+      >
+        <div className="mockup-phone-camera"></div>
+        <div className="mockup-phone-display w-80 h-[685px] relative">
+          <img
+            alt="wallpaper"
+            src="https://img.daisyui.com/images/stock/453966.webp"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {props.children && (
+            <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold z-10">
+              {props.children}
             </div>
+          )}
         </div>
+      </div>
     </motion.div>
-);
+  );
 }
