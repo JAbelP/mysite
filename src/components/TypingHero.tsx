@@ -40,28 +40,25 @@ export default function TypingEffect() {
   const speed = isDeleting ? 50 : 110; // Typing and deleting speed
 
   useEffect(() => {
-    const currentWord = words[index];
-    let timeout: NodeJS.Timeout;
-
-    if (isDeleting) {
-      timeout = setTimeout(() => {
+    const handleTyping = () => {
+      const currentWord = words[index];
+      if (isDeleting) {
         setText((prev) => prev.slice(0, -1));
         if (text === "") {
           setIsDeleting(false);
           setIndex((prev) => (prev + 1) % words.length);
         }
-      }, speed);
-    } else {
-      timeout = setTimeout(() => {
+      } else {
         setText(currentWord.slice(0, text.length + 1));
         if (text === currentWord) {
           setTimeout(() => setIsDeleting(true), 1000); // Pause before deleting
         }
-      }, speed);
-    }
+      }
+    };
 
-    return () => clearTimeout(timeout);
-  }, [speed]);
+    const timer = setTimeout(handleTyping, 200);
+    return () => clearTimeout(timer);
+  }, [index, isDeleting, text]); // Added missing dependencies
 
   return (
     <motion.div className="text-2xl font-mono text-white">
