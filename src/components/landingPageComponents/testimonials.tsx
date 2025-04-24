@@ -10,7 +10,7 @@ export default function Testimonials() {
     },
     {
       name: "Luz Y Vida",
-      image: "/LuzyVida.png",
+      image: "/LuzYVida.png",
       feedback: "Bright Byte built us a super fast site that looks great on any device. The mobile experience is smooth and loads instantly. They really nailed performance and design. Couldn’t be happier with the results!",
       website: "https://www.luzyvidamc.com/en",
     },
