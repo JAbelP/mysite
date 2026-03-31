@@ -60,11 +60,15 @@ export default function TypingEffect() {
   }, [index, isDeleting, text]); // Added missing dependencies
 
   return (
-    <motion.div className="text-2xl font-mono text-white">
-      {text}
+    <motion.div
+      className="text-xl font-mono"
+      style={{ color: '#94A3B8', fontFamily: 'Inter, sans-serif' }}
+    >
+      <span style={{ color: 'var(--bb-gold)' }}>{text}</span>
       <motion.span
         animate={{ opacity: [0, 1] }}
         transition={{ repeat: Infinity, duration: 0.8 }}
+        style={{ color: 'var(--bb-gold)' }}
       >
         |
       </motion.span>
