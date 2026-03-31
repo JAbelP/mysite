@@ -77,9 +77,10 @@ export default function Footer({
                   className="btn btn-sm rounded-full font-bold"
                   style={{
                     background: `linear-gradient(135deg, ${accentColor} 0%, ${accentColor}cc 100%)`,
-                    color: 'var(--bb-navy)',
+                    color: '#0F172A',
                     border: 'none',
                     fontFamily: 'Syne, sans-serif',
+                    WebkitTextFillColor: '#0F172A',
                   }}
                 >
                   {primaryCta.label}
@@ -136,12 +137,12 @@ export default function Footer({
             style={{ borderTop: '1px solid rgba(248,245,240,0.06)' }}
           >
             {copyright && (
-              <p className="text-xs" style={{ color: '#334155', fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-xs" style={{ color: '#64748B', fontFamily: 'Inter, sans-serif' }}>
                 {copyright}
               </p>
             )}
             {footnote && (
-              <p className="text-xs" style={{ color: '#334155', fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-xs" style={{ color: '#64748B', fontFamily: 'Inter, sans-serif' }}>
                 {footnote}
               </p>
             )}

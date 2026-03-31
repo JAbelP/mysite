@@ -362,12 +362,12 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main style={{ overflowX: 'hidden' }}>
       <HeroSection scrollToContact={scrollToContact} />
       <StatsBar />
-      <Services />
       <Portfolio />
       <Testimonials />
+      <Services />
       <About />
       <ContactSection contactRef={contactRef} />
     </main>

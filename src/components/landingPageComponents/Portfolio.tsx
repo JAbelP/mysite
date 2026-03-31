@@ -12,6 +12,7 @@ const projects = [
     description: 'Podcast coaching website for a Latina entrepreneur. Built on WordPress with Google Ads integration, full SEO optimization, and a high-converting landing page.',
     tags: ['WordPress', 'Google Ads', 'SEO'],
     color: '#D4A843',
+    testimonial: undefined,
   },
   {
     name: 'Iglesia Hispana Macedonia',
@@ -20,6 +21,10 @@ const projects = [
     description: 'Trilingual church website (English, Spanish, Portuguese) with dynamic events, service times, sermon library, and multilingual SEO.',
     tags: ['Multilingual', 'i18n', 'SEO', 'React'],
     color: '#2563EB',
+    testimonial: {
+      quote: 'Bright Byte did an awesome job on our site! It works great in three languages and looks amazing. Super easy to work with and really cared about the details. We are super happy with how it turned out!',
+      name: 'Iglesia Hispana Macedonia',
+    },
   },
   {
     name: 'Alaba a Dios Radio',
@@ -28,10 +33,13 @@ const projects = [
     description: 'Live-streaming Spanish Christian radio station. Custom Next.js app with real-time audio player, community chat, sponsor carousel, and donation flow.',
     tags: ['Next.js', 'Live Streaming', 'Custom App'],
     color: '#A3E635',
+    testimonial: undefined,
   },
 ];
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+type Project = typeof projects[0];
+
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -120,6 +128,29 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             </span>
           ))}
         </div>
+
+        {project.testimonial && (
+          <div
+            className="mt-5 pl-3 py-3 pr-3 rounded-r-lg"
+            style={{
+              borderLeft: '3px solid var(--bb-gold)',
+              background: 'rgba(212,168,67,0.06)',
+            }}
+          >
+            <p
+              className="text-xs leading-relaxed italic mb-1.5"
+              style={{ color: 'var(--text-secondary)', fontFamily: 'Inter, sans-serif' }}
+            >
+              &ldquo;{project.testimonial.quote}&rdquo;
+            </p>
+            <p
+              className="text-xs font-semibold"
+              style={{ color: 'var(--bb-gold-dim)', fontFamily: 'Syne, sans-serif' }}
+            >
+              — {project.testimonial.name}
+            </p>
+          </div>
+        )}
       </div>
     </motion.article>
   );

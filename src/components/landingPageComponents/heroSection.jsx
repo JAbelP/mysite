@@ -59,7 +59,7 @@ export default function HeroSection({ scrollToContact }) {
                 className="text-xs uppercase tracking-[0.2em] font-semibold"
                 style={{ color: 'var(--bb-gold-dim)', fontFamily: 'Syne, sans-serif' }}
               >
-                Web · SEO · Automations
+                Websites · Marketing · Growth
               </span>
             </motion.div>
 
@@ -69,14 +69,14 @@ export default function HeroSection({ scrollToContact }) {
               initial="hidden"
               animate="show"
               custom={1}
-              className="text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
               style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, color: 'var(--bb-navy)' }}
             >
-              Don&apos;t Let
+              Your Business
               <br />
-              <span className="text-gold-gradient">Code</span> Stop
+              Deserves a Website
               <br />
-              You.
+              <span className="text-gold-gradient">That Works.</span>
             </motion.h1>
 
             {/* Subheadline */}

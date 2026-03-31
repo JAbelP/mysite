@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ComponentType, type AnchorHTMLAttributes } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 export interface NavLink {
@@ -8,36 +8,20 @@ export interface NavLink {
   href: string;
 }
 
-type AnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
-
 interface NavbarProps {
   links: NavLink[];
-  /** Text logo — e.g. "BrightByte" split into two colored parts */
   logoText: string;
   logoAccent?: string;
-  /** Optional logo image URL — overrides text logo */
   logoImageUrl?: string;
   logoImageAlt?: string;
-  /** CTA button */
   ctaLabel?: string;
   ctaHref?: string;
-  /** Extra slot e.g. language selector */
-  extraNav?: React.ReactNode;
-  /** Background color of the bar */
-  bgColor?: string;
-  /** Border color at the bottom */
-  borderColor?: string;
-  /** Color of nav link text */
-  linkColor?: string;
-  /** Color of nav link on hover */
-  linkHoverColor?: string;
-  /** Accent color — used for logo highlight, CTA button bg, and mobile menu highlights */
-  accentColor?: string;
-  /** Color of logo main text */
-  logoColor?: string;
-  /** Link component — swap next/link for react-router NavLink etc. */
-  LinkComponent?: ComponentType<AnchorProps>;
 }
+
+const GOLD = '#D4A843';
+const NAVY = '#0F172A';
+const CREAM = '#F8F5F0';
+const CREAM_MUTED = '#C8C3BB'; // used in mobile menu links
 
 export default function Navbar({
   links,
@@ -47,84 +31,96 @@ export default function Navbar({
   logoImageAlt = 'Logo',
   ctaLabel,
   ctaHref,
-  extraNav,
-  bgColor = 'var(--bb-navy)',
-  borderColor = 'rgba(212,168,67,0.12)',
-  linkColor = 'var(--bb-cream-muted)',
-  linkHoverColor = 'var(--bb-gold)',
-  accentColor = 'var(--bb-gold)',
-  logoColor = 'var(--bb-cream)',
-  LinkComponent,
 }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const NavA = LinkComponent ?? ((props: AnchorProps) => <a {...props} />);
 
-  // Split logoText at logoAccent for two-tone rendering
   const accentStart = logoAccent ? logoText.indexOf(logoAccent) : -1;
   const logoBefore = accentStart > -1 ? logoText.slice(0, accentStart) : logoText;
   const logoAfter  = accentStart > -1 ? logoText.slice(accentStart) : '';
 
+  function scrollTo(href: string) {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{ background: bgColor, borderBottom: `1px solid ${borderColor}` }}
-    >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 50,
+      background: NAVY,
+      borderBottom: `1px solid rgba(212,168,67,0.15)`,
+    }}>
+      <div style={{
+        maxWidth: '72rem',
+        margin: '0 auto',
+        padding: '0 1.5rem',
+        height: '4rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}>
 
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
           {logoImageUrl ? (
-            <img src={logoImageUrl} alt={logoImageAlt} className="h-8 w-auto" />
+            <img src={logoImageUrl} alt={logoImageAlt} style={{ height: '2rem', width: 'auto' }} />
           ) : (
-            <span style={{ color: logoColor, fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.2rem' }}>
+            <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.2rem', color: CREAM }}>
               {logoBefore}
-              {logoAfter && <span style={{ color: accentColor }}>{logoAfter}</span>}
+              {logoAfter && <span style={{ color: GOLD }}>{logoAfter}</span>}
             </span>
           )}
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map(l => (
-            <NavA
-              key={l.label}
-              href={l.href}
-              className="text-sm font-medium transition-colors duration-200"
-              style={{ color: linkColor, fontFamily: 'Inter, sans-serif' }}
-              onMouseEnter={e => (e.currentTarget.style.color = linkHoverColor)}
-              onMouseLeave={e => (e.currentTarget.style.color = linkColor)}
-            >
-              {l.label}
-            </NavA>
-          ))}
-          {extraNav}
-        </nav>
-
         {/* Right side */}
-        <div className="flex items-center gap-3">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {ctaLabel && ctaHref && (
-            <a
-              href={ctaHref}
-              className="hidden md:inline-flex btn btn-sm rounded-full px-5 text-sm font-bold"
+            <button
+              onClick={() => scrollTo(ctaHref)}
               style={{
-                background: `linear-gradient(135deg, ${accentColor} 0%, ${accentColor}cc 100%)`,
-                color: 'var(--bb-navy)',
-                border: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '9999px',
+                padding: '0 1.25rem',
+                height: '2rem',
+                fontSize: '0.875rem',
+                fontWeight: 700,
                 fontFamily: 'Syne, sans-serif',
+                background: 'transparent',
+                color: GOLD,
+                border: `2px solid ${GOLD}`,
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                outline: 'none',
+                WebkitAppearance: 'none',
               }}
             >
               {ctaLabel}
-            </a>
+            </button>
           )}
 
-          {/* Mobile hamburger */}
+          {/* Hamburger — always visible */}
           <button
-            className="md:hidden btn btn-ghost btn-sm btn-circle"
-            style={{ color: logoColor }}
             onClick={() => setMenuOpen(o => !o)}
             aria-label="Toggle menu"
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: menuOpen ? GOLD : CREAM,
+              padding: '0.25rem',
+              display: 'flex',
+              alignItems: 'center',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = GOLD)}
+            onMouseLeave={e => (e.currentTarget.style.color = menuOpen ? GOLD : CREAM)}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {menuOpen
                 ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -136,35 +132,54 @@ export default function Navbar({
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div
-          className="md:hidden px-6 pb-4 pt-2"
-          style={{ background: bgColor, borderBottom: `1px solid ${borderColor}` }}
-        >
+        <div style={{
+          background: NAVY,
+          borderBottom: `1px solid rgba(212,168,67,0.15)`,
+          padding: '0.5rem 1.5rem 1rem',
+        }}>
           {links.map(l => (
             <a
               key={l.label}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-3 text-sm font-medium border-b"
-              style={{ color: linkColor, borderColor: 'rgba(248,245,240,0.08)', fontFamily: 'Inter, sans-serif' }}
+              style={{
+                display: 'block',
+                padding: '0.75rem 0',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                fontFamily: 'Inter, sans-serif',
+                color: CREAM_MUTED,
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(248,245,240,0.08)',
+              }}
             >
               {l.label}
             </a>
           ))}
           {ctaLabel && ctaHref && (
-            <a
-              href={ctaHref}
-              onClick={() => setMenuOpen(false)}
-              className="btn btn-sm rounded-full mt-4 w-full font-bold"
+            <button
+              onClick={() => { setMenuOpen(false); scrollTo(ctaHref); }}
               style={{
-                background: `linear-gradient(135deg, ${accentColor} 0%, ${accentColor}cc 100%)`,
-                color: 'var(--bb-navy)',
-                border: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '100%',
+                marginTop: '1rem',
+                borderRadius: '9999px',
+                height: '2.5rem',
+                fontSize: '0.875rem',
+                fontWeight: 700,
                 fontFamily: 'Syne, sans-serif',
+                background: 'transparent',
+                color: GOLD,
+                border: `2px solid ${GOLD}`,
+                cursor: 'pointer',
+                outline: 'none',
+                WebkitAppearance: 'none',
               }}
             >
               {ctaLabel}
-            </a>
+            </button>
           )}
         </div>
       )}

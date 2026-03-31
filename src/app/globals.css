@@ -49,6 +49,7 @@ body {
   background-color: var(--surface-bg);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 /* ── Typography ──────────────────────────────────────────────────── */
@@ -121,6 +122,13 @@ body {
   height: 2px;
   background: var(--bb-gold);
   display: block;
+}
+
+/* ── Navbar CTA override — beats DaisyUI resets ─────────────────── */
+.navbar-cta {
+  color: #D4A843 !important;
+  background: transparent !important;
+  border: 2px solid #D4A843 !important;
 }
 
 /* ── Scrollbar ───────────────────────────────────────────────────── */
