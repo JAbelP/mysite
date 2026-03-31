@@ -74,13 +74,20 @@ export default function Footer({
               {primaryCta && (
                 <a
                   href={primaryCta.href}
-                  className="btn btn-sm rounded-full font-bold"
                   style={{
-                    background: `linear-gradient(135deg, ${accentColor} 0%, ${accentColor}cc 100%)`,
-                    color: '#0F172A',
-                    border: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '9999px',
+                    padding: '0.4rem 1.25rem',
+                    fontSize: '0.875rem',
+                    fontWeight: 700,
                     fontFamily: 'Syne, sans-serif',
-                    WebkitTextFillColor: '#0F172A',
+                    background: `linear-gradient(135deg, ${accentColor} 0%, #F0C86A 100%)`,
+                    color: '#0F172A',
+                    textDecoration: 'none',
+                    border: 'none',
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   {primaryCta.label}
