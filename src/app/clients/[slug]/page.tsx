@@ -18,10 +18,12 @@ interface Lead {
   facebook: string;
 }
 
-export default async function ClientPage({ params }: { params: { slug: string } }) {
+export default async function ClientPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
   const { rows } = await pool.query<Lead>(
     'SELECT * FROM leads WHERE slug = $1 AND status != $2',
-    [params.slug, 'discarded']
+    [slug, 'discarded']
   );
 
   if (!rows.length) notFound();
