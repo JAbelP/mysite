@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>East Coast Junk Pros | Junk Removal &amp; Dumpster Rentals</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2263A8;
+    --sky: #A3B5C7;
+    --yellow: #F5C842;
+    --light: #f0f4f8;
+    --white: #ffffff;
+    --text: #1a1a2e;
+  }
+  body { font-family: 'Barlow', sans-serif; color: var(--text); background: var(--white); }
+  h1, h2, h3 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+
+  nav { background: var(--navy); display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+  .nav-brand { color: var(--white); font-size: 1.4rem; font-weight: 800; letter-spacing: 1.5px; }
+  .nav-brand span { color: var(--yellow); }
+  .nav-phone a { color: var(--yellow); font-weight: 700; text-decoration: none; font-size: 1rem; }
+
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--blue) 100%); color: var(--white); padding: 5rem 2rem 4.5rem; text-align: center; }
+  .hero-badge { display: inline-block; background: var(--yellow); color: var(--navy); padding: 0.3rem 1rem; border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800; line-height: 1.05; margin-bottom: 0.8rem; }
+  .hero h1 em { font-style: normal; color: var(--yellow); }
+  .hero p { font-size: 1.15rem; opacity: 0.9; max-width: 520px; margin: 0 auto 2rem; font-family: 'Barlow', sans-serif; font-weight: 400; }
+  .btn { display: inline-block; background: var(--yellow); color: var(--navy); text-decoration: none; padding: 1rem 2.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: 1px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,200,66,0.4); }
+
+  .phone-strip { background: var(--yellow); text-align: center; padding: 1.2rem; }
+  .phone-strip a { color: var(--navy); font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 800; text-decoration: none; letter-spacing: 3px; }
+  .phone-strip p { color: var(--navy); opacity: 0.7; font-size: 0.82rem; margin-top: 0.2rem; }
+
+  section { padding: 4rem 2rem; }
+  .inner { max-width: 1080px; margin: 0 auto; }
+  .s-title { font-size: 2.5rem; text-align: center; color: var(--navy); margin-bottom: 0.4rem; }
+  .s-sub { text-align: center; color: #666; margin-bottom: 2.5rem; font-family: 'Barlow', sans-serif; font-size: 1rem; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .card { background: var(--light); border-radius: 8px; padding: 2rem 1.5rem; text-align: center; border-top: 4px solid var(--blue); }
+  .card-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+  .card h3 { font-size: 1.3rem; color: var(--navy); margin-bottom: 0.4rem; }
+  .card p { font-family: 'Barlow', sans-serif; font-size: 0.9rem; color: #555; }
+
+  .trust-bg { background: var(--navy); }
+  .trust-bg .s-title { color: var(--white); }
+  .trust-bg .s-sub { color: rgba(255,255,255,0.6); }
+  .tc { text-align: center; padding: 1.5rem; }
+  .tc-icon { font-size: 2.5rem; margin-bottom: 0.7rem; }
+  .tc h3 { color: var(--yellow); font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .tc p { color: rgba(255,255,255,0.75); font-family: 'Barlow', sans-serif; font-size: 0.9rem; }
+
+  .contact { background: var(--light); }
+  .contact-card { background: white; max-width: 580px; margin: 0 auto; border-radius: 10px; box-shadow: 0 6px 40px rgba(27,58,92,0.12); padding: 3rem 2rem; text-align: center; }
+  .contact-card h2 { font-size: 2.2rem; color: var(--navy); margin-bottom: 0.5rem; }
+  .contact-card p { color: #666; margin-bottom: 1.5rem; font-family: 'Barlow', sans-serif; }
+  .big-phone { display: block; font-size: 2.8rem; font-weight: 800; color: var(--blue); text-decoration: none; letter-spacing: 2px; }
+  .big-phone:hover { color: var(--navy); }
+
+  footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 1.5rem; font-size: 0.85rem; }
+  footer a { color: var(--yellow); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><span>East Coast</span> Junk Pros</div>
+  <div class="nav-phone"><a href="tel:9192964606">919-296-4606</a></div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Junk Removal &amp; Dumpster Rentals</div>
+  <h1>We Haul It.<br><em>You Forget It.</em></h1>
+  <p>Fast, affordable junk removal and dumpster rental services on the East Coast. Call today and get rid of the clutter.</p>
+  <a href="tel:9192964606" class="btn">Get a Free Quote — 919-296-4606</a>
+</div>
+
+<div class="phone-strip">
+  <a href="tel:9192964606">919-296-4606</a>
+  <p>Same-day and next-day service available</p>
+</div>
+
+<section>
+  <div class="inner">
+    <h2 class="s-title">Our Services</h2>
+    <p class="s-sub">From a single couch to a full cleanout — we've got you covered</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🚛</div>
+        <h3>Junk Removal</h3>
+        <p>We show up, we load up, we haul it away. Furniture, appliances, debris and more.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🗑️</div>
+        <h3>Dumpster Rentals</h3>
+        <p>Flexible rental periods. Drop it, fill it, we pick it up — simple as that.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏠</div>
+        <h3>Estate &amp; Cleanouts</h3>
+        <p>Full property cleanouts for estates, foreclosures, or move-outs.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏗️</div>
+        <h3>Construction Debris</h3>
+        <p>Renovation waste, drywall, wood — we handle the mess so you don't have to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bg">
+  <div class="inner">
+    <h2 class="s-title">Why East Coast Junk Pros?</h2>
+    <p class="s-sub">The crew that shows up and gets it done</p>
+    <div class="grid">
+      <div class="tc">
+        <div class="tc-icon">⚡</div>
+        <h3>Fast Service</h3>
+        <p>Same-day and next-day availability. When you need it gone, we move fast.</p>
+      </div>
+      <div class="tc">
+        <div class="tc-icon">💰</div>
+        <h3>Upfront Pricing</h3>
+        <p>Free estimates, transparent pricing. No surprise fees — ever.</p>
+      </div>
+      <div class="tc">
+        <div class="tc-icon">♻️</div>
+        <h3>Responsible Disposal</h3>
+        <p>We donate and recycle where we can. Good for you, good for the environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="inner">
+    <div class="contact-card">
+      <h2>Ready to Clear It Out?</h2>
+      <p>Call for a free quote. We'll give you a price and can often schedule same-day.</p>
+      <a class="big-phone" href="tel:9192964606">919-296-4606</a>
+      <p style="color:#888; margin-top:0.6rem; font-size:0.9rem;">Call or text — fast response every time</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 East Coast Junk Pros. All rights reserved. &nbsp;|&nbsp; Website by <a href="https://brightbyte.dev" target="_blank">BrightByte</a></p>
+</footer>
+
+</body>
+</html>

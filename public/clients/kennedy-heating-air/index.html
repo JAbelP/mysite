@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kennedy Heating & Air | HVAC Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #0062C5;
+    --primary-dark: #00459a;
+    --accent: #FF3B3B;
+    --light: #f0f6ff;
+    --text: #1a1a2e;
+    --white: #ffffff;
+  }
+  body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); }
+  h1, h2, h3 { font-family: 'Rajdhani', sans-serif; }
+
+  /* NAV */
+  nav { background: var(--primary-dark); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { color: var(--white); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+  .nav-phone { color: var(--white); font-weight: 600; text-decoration: none; font-size: 1rem; }
+  .nav-phone:hover { color: #a8cfff; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #2a9fd6 100%);
+    color: var(--white);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-badge { display: inline-block; background: var(--accent); color: var(--white); padding: 0.3rem 1rem; border-radius: 2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
+  .hero h1 span { color: #a8d8ff; }
+  .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .hero-icons { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .hero-icon { display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; opacity: 0.9; }
+  .hero-icon svg { width: 20px; height: 20px; fill: #a8d8ff; }
+  .btn { display: inline-block; background: var(--accent); color: var(--white); text-decoration: none; padding: 1rem 2.5rem; border-radius: 4px; font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,59,59,0.4); }
+  .btn-outline { background: transparent; border: 2px solid var(--white); margin-left: 1rem; }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); box-shadow: none; }
+
+  /* PHONE BANNER */
+  .phone-banner { background: var(--accent); color: var(--white); text-align: center; padding: 1.2rem; }
+  .phone-banner a { color: var(--white); text-decoration: none; font-family: 'Rajdhani', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
+  .phone-banner p { font-size: 0.85rem; opacity: 0.9; margin-top: 0.2rem; }
+
+  /* SERVICES */
+  section { padding: 4rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-title { text-align: center; margin-bottom: 0.5rem; font-size: 2.2rem; color: var(--primary-dark); }
+  .section-sub { text-align: center; color: #555; margin-bottom: 2.5rem; font-size: 1rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .service-card { background: var(--light); border-top: 4px solid var(--primary); border-radius: 8px; padding: 1.8rem 1.5rem; text-align: center; }
+  .service-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+  .service-card h3 { font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.9rem; color: #555; }
+
+  /* TRUST */
+  .trust { background: var(--primary-dark); color: var(--white); }
+  .trust .section-title { color: var(--white); }
+  .trust .section-sub { color: rgba(255,255,255,0.7); }
+  .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .trust-card { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 2rem; text-align: center; }
+  .trust-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+  .trust-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .trust-card p { font-size: 0.9rem; opacity: 0.8; }
+
+  /* CONTACT */
+  .contact { background: var(--light); }
+  .contact-box { background: var(--white); border-radius: 12px; box-shadow: 0 4px 30px rgba(0,0,0,0.08); padding: 3rem 2rem; text-align: center; max-width: 600px; margin: 0 auto; }
+  .contact-box h2 { font-size: 2rem; color: var(--primary-dark); margin-bottom: 0.5rem; }
+  .contact-box p { color: #555; margin-bottom: 1.5rem; }
+  .contact-phone { display: block; font-family: 'Rajdhani', sans-serif; font-size: 3rem; font-weight: 700; color: var(--accent); text-decoration: none; letter-spacing: 2px; margin-bottom: 0.5rem; }
+  .contact-phone:hover { color: var(--primary); }
+  .contact-detail { color: #555; font-size: 0.95rem; margin-top: 0.5rem; }
+
+  /* FOOTER */
+  footer { background: var(--text); color: rgba(255,255,255,0.6); text-align: center; padding: 1.5rem; font-size: 0.85rem; }
+  footer a { color: #a8cfff; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .btn-outline { display: none; }
+    .hero { padding: 3rem 1.2rem 2.5rem; }
+    nav { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Kennedy Heating &amp; Air</div>
+  <a class="nav-phone" href="tel:9714383743">971-438-3743</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Local HVAC Experts</div>
+  <h1>Comfort You Can <span>Count On</span></h1>
+  <p>Heating and air conditioning solutions built for the Carolinas — fast, reliable, and done right the first time.</p>
+  <div class="hero-icons">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7z"/></svg>
+      Fully Licensed
+    </div>
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg>
+      Fully Insured
+    </div>
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+      Locally Owned
+    </div>
+  </div>
+  <a href="tel:9714383743" class="btn">Call for Free Estimate</a>
+  <a href="#contact" class="btn btn-outline">Contact Us</a>
+</section>
+
+<div class="phone-banner">
+  <a href="tel:9714383743">971-438-3743</a>
+  <p>Call or text anytime — we answer when you need us</p>
+</div>
+
+<section>
+  <div class="section-inner">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Everything your home or business needs to stay comfortable year-round</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">❄️</div>
+        <h3>AC Installation</h3>
+        <p>New system installs sized right for your space with top-brand equipment.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Heating Systems</h3>
+        <p>Furnace and heat pump installation, repair, and maintenance.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>AC & Heat Repair</h3>
+        <p>Fast diagnostics and repairs to get your system back up quickly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Maintenance Plans</h3>
+        <p>Seasonal tune-ups to keep your system running efficiently all year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="section-inner">
+    <h2 class="section-title">Why Choose Kennedy?</h2>
+    <p class="section-sub">Family-owned and built on trust</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🏅</div>
+        <h3>Licensed &amp; Certified</h3>
+        <p>Our technicians are fully licensed HVAC professionals — you get expert work every time.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">⚡</div>
+        <h3>Fast Response</h3>
+        <p>No one should suffer in the heat or cold. We prioritize urgent calls and get there fast.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">💰</div>
+        <h3>Free Estimates</h3>
+        <p>Honest, upfront pricing with no surprises. Get a free quote before any work begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-box">
+      <h2>Get In Touch</h2>
+      <p>Ready to schedule service or have a question? Give us a call — we're here to help.</p>
+      <a class="contact-phone" href="tel:9714383743">971-438-3743</a>
+      <p class="contact-detail">Call or text us anytime</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Kennedy Heating &amp; Air. All rights reserved. &nbsp;|&nbsp; Website by <a href="https://brightbyte.dev" target="_blank">BrightByte</a></p>
+</footer>
+
+</body>
+</html>
