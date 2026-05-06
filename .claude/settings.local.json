@@ -4,7 +4,32 @@
   },
   "permissions": {
     "allow": [
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "WebFetch(domain:192.168.1.4)",
+      "Skill(homelab-reference)",
+      "Skill(homelab-reference:*)",
+      "WebFetch(domain:www.awwwards.com)",
+      "WebFetch(domain:land-book.com)",
+      "WebFetch(domain:www.siteinspire.com)",
+      "WebSearch",
+      "WebFetch(domain:www.servicetitan.com)",
+      "WebFetch(domain:hookagency.com)",
+      "WebFetch(domain:www.sitebuilderreport.com)",
+      "WebFetch(domain:sterkopweb.com)",
+      "WebFetch(domain:www.operationtechnology.com)",
+      "WebFetch(domain:azurodigital.com)",
+      "WebFetch(domain:www.kickcharge.com)",
+      "WebFetch(domain:www.webfx.com)",
+      "WebFetch(domain:httpscollection.com)",
+      "WebFetch(domain:www.lincare.com)",
+      "WebFetch(domain:www.apria.com)",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:hookedoncode.com)",
+      "WebFetch(domain:www.firststudentinc.com)",
+      "WebFetch(domain:www.nationalexpress.com)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

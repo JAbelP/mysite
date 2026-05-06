@@ -71,6 +71,7 @@ export default function RootLayout({
           columns={[
             { heading: 'Services',    links: footerServices },
             { heading: 'Client Work', links: footerWork },
+            { heading: 'Legal', links: [{ label: 'Privacy Policy', href: '/privacy' }] },
           ]}
           copyright={`© ${new Date().getFullYear()} Bright Byte. All rights reserved.`}
           footnote="Built with Next.js · Deployed with care"
