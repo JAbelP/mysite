@@ -10,7 +10,7 @@ export default function PrivacyPage() {
       <p className="text-sm text-gray-500 mb-8">Last updated: November 5, 2026</p>
 
       <p className="mb-6">
-        BrightByte ("we", "us") operates social media automation services for
+        BrightByte (&ldquo;we&rdquo;, &ldquo;us&rdquo;) operates social media automation services for
         small business clients. This policy describes what information we
         collect, how we use it, and your rights regarding it.
       </p>
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <li>
           OAuth access and refresh tokens for connected social media accounts
           (e.g. Pinterest), used solely to publish content on the connected
-          account's behalf.
+          account&apos;s behalf.
         </li>
         <li>
           Account metadata necessary for publishing: board IDs, account IDs,
@@ -71,8 +71,8 @@ export default function PrivacyPage() {
       <ul className="list-disc pl-6 space-y-2 mb-6">
         <li>
           Disconnect the integration in our app, or revoke access directly in
-          your social media account settings (e.g. on Pinterest, under "Apps
-          and websites").
+          your social media account settings (e.g. on Pinterest, under &ldquo;Apps
+          and websites&rdquo;).
         </li>
         <li>
           Email us at{" "}
